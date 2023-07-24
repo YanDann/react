@@ -30,20 +30,268 @@
             )
         }
 
+        function Exo2() {
+            const notes = [0, 4, 10, 20, 15];
+
+            const person = {
+                firstname: 'Boulette',
+                lastname: 'Fromage',
+                age: 15,
+            };
+
+            const actionsList = (
+                <div>
+                    <button>Modifier</button>
+                    <button>Annuler</button>
+                </div>
+            );
+
+            return (
+                <div>
+                    {/* Afficher le contenu du tableau notes sous forme de liste */}
+                    <p>
+                        <ul>
+                            {notes.map(note =>
+                                <li>{note}</li>
+                            )}
+                        </ul>
+                    </p>
+
+                    {/* Afficher le contenu de la constante person sous la forme person.value */}
+                    <p>Prenom : {person.firstname}, Nom : {person.lastname}, Age : {person.age}</p>
+
+                    {/* Afficher le contenu de la constante actionsList */}
+                    <p>
+                        {actionsList}
+                    </p>
+                </div>
+            )
+        }
+
+        function Exo3() {
+            const person = {
+                name: 'Charly',
+                age: 66,
+                job: {
+                    name: 'Styliste',
+                    since: '29 Avril 2020',
+                }
+            };
+
+            const shoppingCart = [
+                {
+                    name: 'Concombre',
+                    type: 'Legume'
+                },
+                {
+                    name: 'Courgette',
+                    type: 'Legume',
+                },
+                {
+                    name: 'Endive',
+                    type: 'Beurk',
+                },
+                {
+                    name: 'Steak',
+                    type: 'Frais',
+                },
+                {
+                    name: 'Sanglier',
+                    type: null,
+                }
+            ];
+
+            /**
+             * Cette fonction renvoie une div au format JSX
+             */
+            const someDiv = () => <div>Je suis une div</div>
+
+            /**
+             * Cette fonction renvoie un bouton Valider au format JSX
+             */
+            const validateButton = () => <button>Valider</button>
+
+            /**
+             * Cette fonction renvoie une liste des séries à regarder pendant le confinement
+             */
+            const catalogSeries = () => {
+                return [
+                    {
+                        name: 'One Sheep',
+                        episodes: 999999,
+                        note: 5,
+                    },
+                    {
+                        name: 'Vikongs',
+                        episodes: 5,
+                        note: 19,
+                    },
+                    {
+                        name: 'Spartakis, au bon lait de brebis',
+                        episodes: 15,
+                        note: 12,
+                    }
+                ];
+            }
+
+            const series = catalogSeries();
+
+            return (
+                <div>
+                    {someDiv()}
+                    {/* Consulter la fonction someDiv. En vous basant sur le même modèle, remplissez la fonction validateButton */}
+                    {/* Appeler la fonction validateButton pour générer le bouton en dessous de ce paragraphe */}
+                    {validateButton()}
+
+                    {/* Afficher toutes les propriétés de la variable person */}
+                    <p>
+                        <b>Nom:</b> {person.name}, <b>Age:</b> {person.age}, <b>Job:</b> {person.job.name} depuis le {person.job.since}.
+                    </p>
+
+                    {/* Afficher toutes les propriétés du panier de courses */}
+                    <p>
+                        <ul>
+                            {shoppingCart.map(items =>
+                                <li> {items.name} / {items.type ? items.type : "Pas de type"}</li>
+                            )}
+                        </ul>
+                    </p>
+
+                    {/* Afficher toutes les propriétés du catalogue de séries */}
+                    <p>
+                        <ul>
+                            {series.map(serie =>
+                                <li> <b>Nom :</b> {serie.name}, <b>NbEpisodes :</b> {serie.episodes}, <b>Note:</b> {serie.note} </li>
+                            )}
+                        </ul>
+                    </p>
+                </div>
+            );
+        }
+
+        function Exo4() {
+            const cat = 'NotRonron';
+
+            const persons = [
+                {
+                    name: 'Charly',
+                    age: 66,
+                    job: {
+                        name: 'Styliste',
+                        since: '29 Avril 2020',
+                    },
+                },
+                {
+                    name: 'Charly',
+                    age: 25,
+                    job: {
+                        name: 'Barman',
+                        since: '29 Avril 5050',
+                    },
+                }
+            ];
+
+            const shoppingCart = [
+                {
+                    name: 'Concombre',
+                    type: 'Legume',
+                    warehouse: {
+                        name: 'MisterEpices',
+                        size: 'petit',
+                    }
+                },
+                {
+                    name: 'Courgette',
+                    type: 'Legume',
+                    warehouse: {
+                        name: 'MisterEpices',
+                        size: 'petit',
+                    }
+                },
+                {
+                    name: 'Endive',
+                    type: 'Beurk',
+                    warehouse: {
+                        name: 'Parking Souterrain',
+                        size: 'Grand',
+                    }
+                },
+                {
+                    name: 'Steak',
+                    type: 'Frais',
+                },
+                {
+                    name: 'Sanglier',
+                    type: null,
+                    warehouse: null,
+                }
+            ];
+
+            return (
+                <div>
+                    <p>
+                        <a href="https://react.dev/learn/conditional-rendering#logical-and-operator-">
+                            Documentation sur le rendu conditionnel à la volée en JSX
+                        </a>
+                    </p>
+
+                    {/* Après avoir consulté la documentation, afficher chat de manière conditionnelle seulement
+                        si son nom est différent de "Ronron" et qu'il n'est pas nul et avec la notation && */}
+                    <p>
+                        {cat !== 'Ronron' && <h3> {cat} </h3>}
+                    </p>
+
+                    {/* Afficher les propriétés de chaque personne à l'aide de map
+                        Pour chaque personne afficher son âge de manière conditionnelle en utilisant ? et : */}
+                    <p>
+                        {persons.map(person =>
+                            <li> <b>Nom :</b> {person.name}, {person.age > 30 ? <span><b>Age :</b></span> + person.age + ' ans' : ''}, <b>Job :</b> {person.job.name} depuis le {person.job.since} </li>    
+                        )}
+                    </p>
+
+                    <p>
+                        Afficher les propriétés de chaque personne à l'aide de map
+                        Pour chaque personne afficher son âge de manière conditionnelle en utilisant ||
+                    </p>
+
+                    <ul>
+                        <li>
+                            Si l'âge de la personne est supérieur à 65, alors afficher "Senior"
+                        </li>
+                        <li>
+                            Sinon, afficher l'âge de la personne
+                        </li>
+                    </ul>
+
+                    <p>Afficher tous les légumes dans une boucle map</p>
+
+                    <p>Pour chaque légume, afficher son magasin de manière conditionnelle avec && </p>
+                </div>
+            )
+        }
+
         const root = ReactDOM.createRoot(document.getElementById('root'));
         const content = () => {
             root.render(
                 <div>
                     <h1>Exercices - bases</h1>
-
-                    <br/>
+                    <br />
 
                     <h2> Exercice 001 </h2>
                     <Exo1 />
-
                     <br />
 
                     <h2> Exercice 002 </h2>
+                    <Exo2 />
+                    <br />
+
+                    <h2>Exercice 003</h2>
+                    <Exo3 />
+                    <br/>
+
+                    <h2>Exercice 004</h2>
+                    <Exo4 />
+                    <br/>
                 </div>
             );
         }
