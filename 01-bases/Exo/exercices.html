@@ -249,6 +249,9 @@
 
                     {/* Afficher les propriétés de chaque personne à l'aide de map
                         Pour chaque personne afficher son âge de manière conditionnelle en utilisant || */}
+
+                    {/* L'UTILITATION DU || ===> {person.age > 65 && 'Senior' || person.age} */} {/* => condition à la volée */}
+                    {/* SI PERSON.AGE SUP A 65 ON AFFICHE SENIOR SINON ON AFFICHE L'AGE */}
                     <p>
                         {persons.map(person =>
                             <li> <b>Nom :</b> {person.name}{person.age > 30 || ", Age :" + person.age + ' ans'}, <b>Job :</b> {person.job.name} depuis le {person.job.since} </li>
@@ -259,17 +262,23 @@
                     {/* Sinon, afficher l'âge de la personne */}
 
                     <ul>
-                            {persons.map(person =>
-                                <li>{person.name} {person.age >= 65 ? " est un Senior" : " à " + person.age + " ans"}</li>
-                            )}
+                        {persons.map(person =>
+                            <li>{person.name} {person.age >= 65 ? " est un Senior" : " à " + person.age + " ans"}</li>
+                        )}
                     </ul>
 
                     {/* Afficher tous les légumes dans une boucle map */}
                     {/* Pour chaque légume, afficher son magasin de manière conditionnelle avec &&  */}
                     <ul>
-                        {shoppingCart.map(item => 
-                            <p>{item.type == "Legume" && <li>{item.name + " / " + item.warehouse.name}</li>}</p>
-                        )}    
+                        {shoppingCart.map(item =>
+                            // {vegetable.name}
+                            // {vegetable.warehouse &&
+                            //  <div>
+                            //      <p>{vegetable.warehouse.name} - {vegetable.warehouse.size}</p>
+                            //  </div>
+                            //  }
+                            <p>{item.type == "Legume" && <li>{item.name + " / " + item.warehouse.name + " - " + item.warehouse.size}</li>}</p>
+                        )}
                     </ul>
                 </div>
             )
