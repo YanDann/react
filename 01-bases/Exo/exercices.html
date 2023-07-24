@@ -51,8 +51,8 @@
                     {/* Afficher le contenu du tableau notes sous forme de liste */}
                     <p>
                         <ul>
-                            {notes.map(note =>
-                                <li>{note}</li>
+                            {notes.map((note, index) =>
+                                <li key={index}>{note}</li>
                             )}
                         </ul>
                     </p>
@@ -61,9 +61,7 @@
                     <p>Prenom : {person.firstname}, Nom : {person.lastname}, Age : {person.age}</p>
 
                     {/* Afficher le contenu de la constante actionsList */}
-                    <p>
-                        {actionsList}
-                    </p>
+                    {actionsList}
                 </div>
             )
         }
@@ -152,7 +150,7 @@
                     <p>
                         <ul>
                             {shoppingCart.map(items =>
-                                <li> {items.name} / {items.type ? items.type : "Pas de type"}</li>
+                                <li> {items.name} {items.type ? '/ ' + items.type : ''}</li>
                             )}
                         </ul>
                     </p>
@@ -245,25 +243,33 @@
                         Pour chaque personne afficher son âge de manière conditionnelle en utilisant ? et : */}
                     <p>
                         {persons.map(person =>
-                            <li> <b>Nom :</b> {person.name}, {person.age > 30 ? <span><b>Age :</b></span> + person.age + ' ans' : ''}, <b>Job :</b> {person.job.name} depuis le {person.job.since} </li>    
+                            <li> <b>Nom :</b> {person.name}{person.age > 30 ? ", Age :" + person.age + ' ans' : ''}, <b>Job :</b> {person.job.name} depuis le {person.job.since} </li>
                         )}
                     </p>
 
+                    {/* Afficher les propriétés de chaque personne à l'aide de map
+                        Pour chaque personne afficher son âge de manière conditionnelle en utilisant || */}
                     <p>
-                        Afficher les propriétés de chaque personne à l'aide de map
-                        Pour chaque personne afficher son âge de manière conditionnelle en utilisant ||
+                        {persons.map(person =>
+                            <li> <b>Nom :</b> {person.name}{person.age > 30 || ", Age :" + person.age + ' ans'}, <b>Job :</b> {person.job.name} depuis le {person.job.since} </li>
+                        )}
                     </p>
 
+                    {/* Si l'âge de la personne est supérieur à 65, alors afficher "Senior" */}
+                    {/* Sinon, afficher l'âge de la personne */}
+
                     <ul>
-                        <li>
-                            Si l'âge de la personne est supérieur à 65, alors afficher "Senior"
-                        </li>
-                        <li>
-                            Sinon, afficher l'âge de la personne
-                        </li>
+                            {persons.map(person =>
+                                <li>{person.name} {person.age >= 65 ? " est un Senior" : " à " + person.age + " ans"}</li>
+                            )}
                     </ul>
 
-                    <p>Afficher tous les légumes dans une boucle map</p>
+                    {/* Afficher tous les légumes dans une boucle map */}
+                    <p>
+                        {shoppingCart.map(item => 
+                            {item.type == "Legume" && <li>item.name</li>}
+                        )}    
+                    </p>
 
                     <p>Pour chaque légume, afficher son magasin de manière conditionnelle avec && </p>
                 </div>
@@ -287,11 +293,11 @@
 
                     <h2>Exercice 003</h2>
                     <Exo3 />
-                    <br/>
+                    <br />
 
                     <h2>Exercice 004</h2>
                     <Exo4 />
-                    <br/>
+                    <br />
                 </div>
             );
         }
