@@ -265,13 +265,12 @@
                     </ul>
 
                     {/* Afficher tous les légumes dans une boucle map */}
-                    <p>
+                    {/* Pour chaque légume, afficher son magasin de manière conditionnelle avec &&  */}
+                    <ul>
                         {shoppingCart.map(item => 
-                            {item.type == "Legume" && <li>item.name</li>}
+                            <p>{item.type == "Legume" && <li>{item.name + " / " + item.warehouse.name}</li>}</p>
                         )}    
-                    </p>
-
-                    <p>Pour chaque légume, afficher son magasin de manière conditionnelle avec && </p>
+                    </ul>
                 </div>
             )
         }
