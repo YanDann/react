@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel"> // Important sinon on ne peut pas faire de JSX
+
+
+        function Exo1() {
+            const song = 'Chachacha';
+            const numberOfGoodReasonsToBeHere = 150;
+            const disabledButton = <button disabled>Bouton</button>
+
+            return (
+                <div>
+                    <p>{song}</p>
+                    <p>{numberOfGoodReasonsToBeHere}</p>
+                    <p>{disabledButton}</p>
+                </div>
+            )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        const content = () => {
+            root.render(
+                <div>
+                    <h1>Exercices - bases</h1>
+
+                    <br/>
+
+                    <h2> Exercice 001 </h2>
+                    <Exo1 />
+
+                    <br />
+
+                    <h2> Exercice 002 </h2>
+                </div>
+            );
+        }
+        content(); // Affiche le rendu une fois
+    </script>
+</body>
+
+</html>

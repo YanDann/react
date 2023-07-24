@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel"> // Important sinon on ne peut pas faire de JSX
+        const name = 'Julien';
+        const user = {
+            name: 'Julien',
+            avatar: 'https://i.pravatar.cc/300',
+            year: 1994,
+        }
+        const age = (year) => 2023 - year;
+        const people = ['Julien', 'Bryan'];
+        const title = <h2>Liste des gens</h2>;
+
+        // Un composant React (une balise HTML en fin de compte)
+        // { name } est la même chose que props et props.name (Destructuration)
+        function Welcome({ name, age }) {
+            if (age) {
+                return <h1>Bonjour {name ? name : 'Inconnu'}, tu as {age} ans</h1>;
+            }
+
+            return (
+                <div>
+                    {/* Condition à la volée */}
+                    {name && <h1>Bonjour {name}</h1>}
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        const content = () => {
+            root.render(
+                <div>
+                    <Welcome name={user.name} age="29" />
+                    <Welcome name="Toto" />
+                    <Welcome age="10" />
+                    {/* Un commentaire en JSX */}
+                    <h1>Bonjour {user.name}, tu as {age(1994)} ans</h1>
+                    <img src={user.avatar} alt={user.name} className="image" style={{ borderRadius: '50%' }} />
+                    <p>Il est {new Date().toLocaleTimeString()} </p>
+                    {title}
+                    <ul>
+                        {people.map(person =>
+                            <li>{person}</li>
+                        )}
+                    </ul>
+                </div>
+            );
+        }
+        content(); // Affiche le rendu une fois
+        setInterval(content, 1000);
+    </script>
+</body>
+
+</html>
