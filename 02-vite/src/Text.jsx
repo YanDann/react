@@ -3,7 +3,7 @@ import { useState } from "react";
 function Text() {
     const [name, setName] = useState('');
     const toggleName = (newName) => {
-        newName === name ? setName('') : setName(newName);
+        setName(newName === name ? '' : newName);
     };
 
     return (
