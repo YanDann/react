@@ -1,4 +1,6 @@
 import List from './List';
+import State1 from './State1';
+import State2 from './State2';
 import Text from './Text';
 import Button from './button';
 
@@ -12,6 +14,9 @@ function App() {
       <Text />
 
       <List />
+
+      <State1 />
+      <State2 />
     </div>
    );
 }
