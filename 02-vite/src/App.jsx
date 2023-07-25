@@ -1,3 +1,4 @@
+import List from './List';
 import Text from './Text';
 import Button from './button';
 
@@ -9,6 +10,8 @@ function App() {
       <Button title="Ajouter" />
 
       <Text />
+
+      <List />
     </div>
    );
 }
