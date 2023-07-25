@@ -12,13 +12,15 @@ function StateChallenge() {
         },
         {
             name: 'Donald Trump',
-            type: 'orange'
+            type: 'orange',
+            avatar: 'https://m.media-amazon.com/images/I/417PnbtqvgL._AC_UF894,1000_QL80_.jpg',
         }
     ]);
     const [newAnimalType, setNewAnimalType] = useState('');
     const [newAnimalName, setNewAnimalName] = useState('');
 
     const saveAnimal = () => {
+        // event.preventDefault(); => Empêche un formulaire d'être envoyé
         let newAnimal = {name: newAnimalName, type: newAnimalType};
 
         setAnimals([...animals, newAnimal]);
@@ -32,18 +34,20 @@ function StateChallenge() {
                 <ul>
                     Afficher la liste des animaux dans une boucle map. Pour chaque animal, afficher son nom et son type :
                 </ul>
-                {animals.map(animal =>
-                    <li> <b>Nom :</b> {animal.name}, <b>Type :</b> {animal.type} </li>
+                {animals.map((animal, index) =>
+                    <li key={index}> <b>Nom :</b> {animal.name}, <b>Type :</b> {animal.type}, {animal.avatar ? <img src={animal.avatar} className="Trump" alt="L'animal" /> : ''} </li>
                 )}
 
                 <ul>
                     Créer un input texte qui permet de saisir la valeur du state newAnimalType. Quand sa valeur change, la valeur de newAnimalType est mise à jour.
                 </ul>
+                <label htmlFor="">Nom</label>
                 <input type="text" value={newAnimalType} onChange={(event) => setNewAnimalType(event.target.value)} />
 
                 <ul>
                     Créer un autre input texte qui permet de saisir la valeur du state newAnimalName, avec le même fonctionnement.
                 </ul>
+                <label htmlFor="">Type</label>
                 <input type="text" value={newAnimalName} onChange={(event) => setNewAnimalName(event.target.value)} />
 
                 <ul>
