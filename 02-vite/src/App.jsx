@@ -8,7 +8,7 @@ function App() {
       <Button title="Valider" />
       <Button title="Ajouter" />
 
-      <Text firstbutton='Julien' secondbutton='Toto' />
+      <Text />
     </div>
    );
 }
