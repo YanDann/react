@@ -1,8 +1,8 @@
 import List from './List';
-import State1 from './State1';
-import State2 from './State2';
-import State3 from './State3';
-import StateChallenge from './StateChallenge';
+import State1 from './Exercices/State1';
+import State2 from './Exercices/State2';
+import State3 from './Exercices/State3';
+import StateChallenge from './Exercices/StateChallenge';
 import Text from './Text';
 import Button from './button';
 
