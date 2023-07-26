@@ -3,10 +3,14 @@ import { useEffect, useState } from "react";
 const ERROR_ADULT = 'Désolé, c\'est interdit aux adultes ici !';
 const ERROR_DEAD = 'Désolé, c\'est interdit aux bébés ici !';
 
+const HOT = 'Trop chaud !';
+const COLD = 'Trop froid !';
+
 function LifeCycle2() {
     const [errorMessage, setErrorMessage] = useState('');
     const [age, setAge] = useState(0);
     const [degrees, setDegrees] = useState(0);
+    const [degreeMessage, setDegreeMessage] = useState('');
 
     /**
      * Cette fonction est appelée dès qu'une mise à jour du DOM est effectuée.
@@ -14,14 +18,31 @@ function LifeCycle2() {
      * La fonction retournée contient l'ancien state avant la mise à jour
      */
     useEffect(() => {
-        age <= 5 ? console.log(ERROR_DEAD) : '';
-        age >=18 ? console.log(ERROR_ADULT) : '';
+        age <= 5 ? setErrorMessage(ERROR_DEAD) : setErrorMessage('');
+        age >= 18 && setErrorMessage(ERROR_ADULT);
 
         return () => {
 
-
         };
     }, [age]);
+
+    useEffect(() => {
+        degrees < 0 && setDegreeMessage(COLD);
+        if (degrees < -1){
+            setDegreeMessage('');
+        }
+
+        degrees > 0 && setDegreeMessage(HOT);
+        if (degrees > 1){
+            setDegreeMessage('');
+        }
+
+        degrees == 0 && setDegreeMessage('');
+
+        return () => {
+
+        };
+    }, [degrees]);
 
     /**
      * Augmente l'âge de 1 dans le state
@@ -52,6 +73,7 @@ function LifeCycle2() {
                     <h3>Age : {age}</h3>
                     <p>Voici un bouton qui va augmenter l'âge de 1</p>
                     <button onClick={incrementAge}>Age +1</button>
+                    <p> {errorMessage} </p>
                 </div>
                 <Instructions exercice={1} />
             </div>
@@ -64,6 +86,7 @@ function LifeCycle2() {
                         <button onClick={incrementTemperature}>Plus chaud</button>
                         <button onClick={decrementTemperature}>Plus froid</button>
                     </div>
+                    <p> {degreeMessage} </p>
                 </div>
                 <Instructions exercice={2} />
             </div>
