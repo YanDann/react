@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-let count = 0;
 
-const ERROR_TOO_SHORT = 'Mot de passe trop court, Il faut au moins 8 caractères, et vous en avez mis ' + count;
+const ERROR_TOO_SHORT = 'Mot de passe trop court, Il faut au moins 8 caractères, et vous en avez mis ';
 const ERROR_NO_CAP = 'Le mot de passe doit contenir au moins une majuscule';
 const ERROR_NO_MIN = 'Le mot de passe doit contenir au moins une minuscule';
 
@@ -16,10 +15,11 @@ function LifeCycle3() {
    */
   useEffect(() => {
     password.length <= 8 ? setErrorMessages(ERROR_TOO_SHORT) : setErrorMessages('');
+
     return () => {
       
     };
-  });
+  }, [password]);
 
   /**
    * Met à jour le state du password
