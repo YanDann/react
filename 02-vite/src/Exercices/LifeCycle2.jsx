@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const ERROR_ADULT = 'Désolé, c\'est interdit aux adultes ici !';
 const ERROR_DEAD = 'Désolé, c\'est interdit aux bébés ici !';
@@ -11,6 +11,7 @@ function LifeCycle2() {
     const [age, setAge] = useState(0);
     const [degrees, setDegrees] = useState(0);
     const [degreeMessage, setDegreeMessage] = useState('');
+    const previousDegree = useRef(0); // Le useRef est un state qui ne déclenche pas de mise à jour du DOM
 
     /**
      * Cette fonction est appelée dès qu'une mise à jour du DOM est effectuée.
@@ -27,20 +28,26 @@ function LifeCycle2() {
     }, [age]);
 
     useEffect(() => {
-        degrees < 0 && setDegreeMessage(COLD);
-        if (degrees < -1){
-            setDegreeMessage('');
-        }
+        // degrees < 0 && setDegreeMessage(COLD);
+        // if (degrees < -1){
+        //     setDegreeMessage('');
+        // }
 
-        degrees > 0 && setDegreeMessage(HOT);
-        if (degrees > 1){
-            setDegreeMessage('');
-        }
+        // degrees > 0 && setDegreeMessage(HOT);
+        // if (degrees > 1){
+        //     setDegreeMessage('');
+        // }
 
-        degrees == 0 && setDegreeMessage('');
+        // degrees == 0 && setDegreeMessage('');
+
+        if (degrees > 0 && previousDegree.current === 0) {
+            console.log('Trop chaud !');
+        } else if (degrees < 0 && previousDegree.current === 0) {
+            console.log('Trop froid !');
+        }
 
         return () => {
-
+            previousDegree.current = degrees;
         };
     }, [degrees]);
 

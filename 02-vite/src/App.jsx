@@ -9,6 +9,7 @@ import Clock from './Clock';
 import { useState } from 'react';
 import LifeCycle1 from './Exercices/LifeCycle1';
 import LifeCycle2 from './Exercices/LifeCycle2';
+import LifeCycle3 from './Exercices/LifeCycle3';
 
 function App() {
   const [show, setShow] = useState(true);
@@ -35,6 +36,7 @@ function App() {
 
       <LifeCycle1 />
       <LifeCycle2 />
+      <LifeCycle3 />
     </div>
   );
 }
