@@ -17,10 +17,7 @@ function Primeur() {
                     <div className="flex">
                         <ul key={index}> {fruit.name} au prix de {fruit.price} €</ul>
 
-                        <span>
-                            {fruit.quantity > 0 ? 'En stock' : 'Rupture'}
-                        </span>
-                    </div>
+                        {fruit.quantity > 0 ? <span className="stock">En stock</span> : <span className="rupture">Rupture</span>}                    </div>
                 )}
             </div>
         </div>
