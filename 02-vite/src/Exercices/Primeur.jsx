@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 function Primeur() {
     const fruits = [
         { name: 'Banane', price: 0.7, quantity: 10 },
-        { name: 'Kiwi', prpice: 2.5, quantity: 0 },
-        { name: 'Fraise', prpice: 3, quantity: 10 },
-        { name: 'Citron', prpice: 0.5, quantity: 0 },
-        { name: 'Framboise', prpice: 1.6, quantity: 0 },
+        { name: 'Kiwi', price: 2.5, quantity: 0 },
+        { name: 'Fraise', price: 3, quantity: 10 },
+        { name: 'Citron', price: 0.5, quantity: 0 },
+        { name: 'Framboise', price: 1.6, quantity: 0 },
     ];
 
     return (

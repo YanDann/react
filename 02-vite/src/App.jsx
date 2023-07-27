@@ -11,6 +11,7 @@ import LifeCycle1 from './Exercices/LifeCycle1';
 import LifeCycle2 from './Exercices/LifeCycle2';
 import LifeCycle3 from './Exercices/LifeCycle3';
 import Primeur from './Exercices/Primeur';
+import Profils from './Exercices/Profils';
 
 function App() {
   const [show, setShow] = useState(true);
@@ -40,6 +41,7 @@ function App() {
       <LifeCycle3 /> */}
 
       <Primeur />
+      <Profils />
     </div>
   );
 }
