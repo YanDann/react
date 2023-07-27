@@ -12,13 +12,14 @@ import LifeCycle2 from './Exercices/LifeCycle2';
 import LifeCycle3 from './Exercices/LifeCycle3';
 import Primeur from './Exercices/Primeur';
 import Profils from './Exercices/Profils';
+import Vrello from './Exercices/Vrello';
 
 function App() {
   const [show, setShow] = useState(true);
 
   return (
     <div>
-      <h1>Vite + React</h1>
+      <h1 className='center'>Vite + React</h1>
       {/* <Button title="Valider" />
       <Button title="Ajouter" />
 
@@ -42,6 +43,7 @@ function App() {
 
       <Primeur />
       <Profils />
+      <Vrello />
     </div>
   );
 }

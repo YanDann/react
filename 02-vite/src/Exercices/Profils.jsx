@@ -35,7 +35,7 @@ function Profils() {
     ]
 
     return (
-        <div>
+        <div className="center">
             <h2>Exercice Profils</h2>
             <div className="List-profil">
                 <h3>Listing des utilisateurs du site</h3>
@@ -55,7 +55,7 @@ function Profils() {
                                     <span> {profil.age} ans. </span>
                                 </div>
                             </div>
-                            <p>{profil.socialMedia.length > 0 ? 'Réseaux Sociax' : 'Pas de réseaux sociaux'}</p>
+                            <p>{profil.socialMedia.length > 0 ? 'Réseaux Sociaux' : 'Pas de réseaux sociaux'}</p>
                             <ul>
                                 {profil.socialMedia.map((media, index) =>
                                     <li key={index}> <a href="">{media}</a> </li>

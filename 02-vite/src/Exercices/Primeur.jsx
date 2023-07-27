@@ -10,7 +10,7 @@ function Primeur() {
     ];
 
     return (
-        <div className="primeur">
+        <div className="primeur center">
             <h2>Exercice Primeur</h2>
             <div>
                 {fruits.map((fruit, index) =>
