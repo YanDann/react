@@ -48,7 +48,7 @@ function Profils() {
                                     {profil.partner ? 
                                     <img className="partner" src="https://icones.pro/wp-content/uploads/2021/02/icone-etoile-jaune.png" alt="" /> 
                                     : 
-                                    <img src="" alt="" /> }
+                                    '' }
                                 </div>
                                 <div className="info">
                                     <span> {profil.firstname} {profil.lastname} </span>
